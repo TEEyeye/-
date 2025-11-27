@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🍵视频拼贴工具🍵</title>
+    
+    <!-- p5.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.3/p5.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.3/addons/p5.dom.js"></script>
+    
+    <script src="sketch.js"></script>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* 帮助按钮（右上角） */
+        .help-btn {
+            position: fixed;
+            top: 12px;
+            right: 12px;
+            padding: 6px 12px;
+            font-size: 14px;
+            background: rgba(0,0,0,0.65);
+            color: #fff;
+            border-radius: 6px;
+            cursor: pointer;
+            user-select: none;
+            backdrop-filter: blur(6px);
+            z-index: 10000;
+        }
+        .help-btn:hover {
+            background: rgba(0,0,0,0.85);
+        }
+
+        /* 指南浮层 */
+        .guide-panel {
+            position: fixed;
+            top: 60px;
+            right: 12px;
+            width: 220px;
+            padding: 14px;
+            background: rgba(0,0,0,0.6);
+            backdrop-filter: blur(8px);
+            border-radius: 10px;
+            color: white;
+            font-size: 14px;
+            line-height: 1.6;
+            z-index: 9999;
+            display: none;
+        }
+        .guide-panel p {
+            margin: 6px 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ⚠ 原本的提示，不修改、不移动 -->
+    <p class="loading-prompt">请点击左上角的 "选择文件" 按钮加载视频</p>
+
+    <!-- 新增：帮助按钮 -->
+    <div class="help-btn" onclick="toggleGuide()">❔ 帮助</div>
+
+    <!-- 新增：指南 -->
+    <div id="guide-panel" class="guide-panel">
+        <p>Space/空格：-播放/暂停</p>
+        <p>Delete/删除：-删除选中的拼贴</p>
+        <p>Shift+鼠标拖动：-选多个拼贴</p>
+        <p>⬅️/➡️：-逐帧微调视频片段</p>
+    </div>
+
+    <script>
+        function toggleGuide() {
+            const panel = document.getElementById("guide-panel");
+            panel.style.display = (panel.style.display === "none" || panel.style.display === "")
+                ? "block"
+                : "none";
+        }
+    </script>
+
+</body>
+</html>

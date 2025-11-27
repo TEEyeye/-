@@ -1,0 +1,62 @@
+/* 基础重置 */
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* 防止滚动条出现 */
+    font-family: sans-serif;
+    background-color: #f0f0f0;
+}
+
+/* 视频加载提示 */
+.loading-prompt {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #666;
+    font-size: 1.2em;
+    text-align: center;
+}
+
+/* UI Bar 样式 (顶部工具栏) */
+.uibar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    background-color: #fff;
+    border-bottom: 1px solid #ccc;
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+    box-sizing: border-box;
+    z-index: 1000; /* 确保 UI 栏在最上层 */
+}
+
+/* UI 按钮通用样式 */
+.uibar button {
+    margin: 0 5px;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    font-size: 14px;
+}
+
+/* 按钮 ON 状态 (例如：框选：开) */
+.uibar .on {
+    background-color: #007bff; /* 蓝色 */
+    color: white;
+}
+
+/* 按钮 OFF 状态 (例如：播放/导出) */
+.uibar .off {
+    background-color: #e0e0e0;
+    color: #333;
+}
+
+.uibar .off:hover {
+    background-color: #ccc;
+}
